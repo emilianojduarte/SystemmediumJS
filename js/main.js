@@ -103,7 +103,8 @@ const arrayData = [
 let stringRecomendado = "";
 let stringEnvio = "";
 /*--------------------------CLASES------------------------ */
-
+//Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
+//tiene los métodos para todas las acciones relacionadas al carrito
 class Carrito {
   constructor() {
     this.productos = [];
