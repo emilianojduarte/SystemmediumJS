@@ -1,0 +1,406 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+/* Paleta de Colores */
+/* Mixing */
+/*---- Estilos para las tarjetas ----*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+/* Paleta de Colores */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0em;
+  max-width: 350px;
+  padding: 0em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+  transition: all 350ms ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white; }
+  .card .card__img {
+    height: 100%;
+    width: 100%;
+    max-width: 480px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em; }
+  .card .card__txt {
+    text-align: center;
+    font-style: normal;
+    font-size: 2rem;
+    color: #0A1128;
+    font-family: "Lato", sans-serif;
+    padding: 0.5em; }
+    .card .card__txt .card__txt--p1 {
+      display: inline-block;
+      background-color: #096809;
+      color: ghostwhite;
+      border-radius: 0.35em;
+      font-size: 1.3rem;
+      padding: 0.25em;
+      margin-right: 0.1em;
+      border: 1px; }
+    .card .card__txt .card__txt--p2 {
+      font-size: 1.4rem;
+      font-weight: 500; }
+    .card .card__txt .card__txt--p3 {
+      font-size: 1.2rem;
+      font-weight: 300; }
+    .card .card__txt .card__txt--p4 {
+      display: inline-block;
+      background-color: #034078;
+      border-radius: 0.35em;
+      font-size: 1.3rem;
+      color: ghostwhite;
+      padding: 0.25em;
+      border: 1px; }
+    .card .card__txt .card__txt--p5 {
+      display: inline-block;
+      background-color: #01a5b1;
+      border-radius: 0.35em;
+      font-size: 1.0rem;
+      color: ghostwhite;
+      padding: 0.40em;
+      border: 1px; }
+
+.card:hover {
+  transform: scale(1.05); }
+
+/* ----- HEADER -------*/
+/* Paleta de Colores */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0.75em;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #0A1128;
+  padding: 0.5em 0em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.header__div {
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: #FEFCFB;
+  font-family: "Lato", sans-serif; }
+  .header__div nav {
+    text-align: center;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: #FEFCFB;
+    font-family: "Lato", sans-serif;
+    list-style-type: none;
+    /* Menu desplegable*/ }
+    .header__div nav ul {
+      padding-left: 0;
+      margin-bottom: 0; }
+    .header__div nav li {
+      display: inline-block;
+      position: relative;
+      padding-inline: 1em; }
+    .header__div nav ul ul {
+      position: absolute;
+      display: none; }
+    .header__div nav ul ul li {
+      display: block; }
+    .header__div nav ul li:hover ul {
+      display: block; }
+    .header__div nav .subMenu {
+      background-color: #0A1128;
+      border-radius: 0.5em;
+      padding-left: 0; }
+
+/* -------------------- FOOTER------------- */
+/* Paleta de Colores */
+/* Mixing */
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 0.75em;
+  gap: 1em;
+  background-color: #0A1128;
+  width: 100%; }
+  footer div {
+    text-align: center;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #FEFCFB;
+    font-family: "Lato", sans-serif; }
+
+/* Estilos para el formulario de contacto */
+/* Paleta de Colores */
+/* Mixing */
+.contacto {
+  font-family: "Lato", sans-serif;
+  color: #0A1128;
+  font-style: normal;
+  padding: 1.0em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+  .contacto fieldset {
+    padding: 0.5em;
+    width: 100%; }
+    .contacto fieldset div label {
+      padding: 0.4em;
+      margin-bottom: 0; }
+    .contacto fieldset legend {
+      font-size: 1.5rem;
+      padding: 0.3em; }
+  .contacto div div .contaco__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center; }
+
+/* Estilos redes sociales */
+/* Paleta de Colores */
+/* Mixing */
+.redes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 0.5em;
+  margin: 0.5em;
+  width: 100%; }
+  .redes .redes__div {
+    padding: 0.5em; }
+  .redes .redes__txt {
+    text-align: center;
+    font-style: normal;
+    font-size: 1.3rem;
+    color: #0A1128;
+    font-family: "Lato", sans-serif; }
+
+/*---- Estilos para el carrito ----*/
+/* Paleta de Colores */
+/* Mixing */
+#sectionMainCart {
+  display: flex;
+  align-content: center;
+  flex-direction: column; }
+
+.cartStyle {
+  text-align: center;
+  font-style: normal;
+  font-size: 1.7rem;
+  width: 100%;
+  color: #0A1128;
+  font-family: "Lato", sans-serif;
+  padding: 0.5em;
+  box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center; }
+  .cartStyle .cartStyle__img {
+    max-width: 250px;
+    max-height: 250px;
+    overflow: auto; }
+    .cartStyle .cartStyle__img img {
+      width: 250px;
+      height: 250px; }
+  .cartStyle .cartStyle__data {
+    padding: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center; }
+    .cartStyle .cartStyle__data .cartStyle__data--detail {
+      margin: 0.5em;
+      padding: 0.5em; }
+    .cartStyle .cartStyle__data .cartStyle__data__counters {
+      gap: 0.6em;
+      display: inline-flex;
+      justify-content: center;
+      font-size: 1.5rem;
+      padding: 0.5em;
+      margin: 0.5em; }
+      .cartStyle .cartStyle__data .cartStyle__data__counters .cartStyle__data__counters--signs {
+        background-color: #0A1128;
+        color: ghostwhite;
+        line-height: 0.5em;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        padding: 0.75em;
+        margin-right: 0.1em; }
+      .cartStyle .cartStyle__data .cartStyle__data__counters .cartStyle__data__counters--signs:hover {
+        cursor: pointer; }
+    .cartStyle .cartStyle__data .cartStyle__data__price {
+      text-align: center;
+      font-style: normal;
+      font-size: 1.7rem;
+      color: #0A1128;
+      margin: 0.5em;
+      padding: 0.5em;
+      font-family: "Lato", sans-serif;
+      padding: 0.5em;
+      display: inline-flex;
+      align-content: space-between;
+      gap: 1em; }
+      .cartStyle .cartStyle__data .cartStyle__data__price .cartStyle__data__price--amount {
+        font-size: 2rem; }
+      .cartStyle .cartStyle__data .cartStyle__data__price .cartStyle__data__price--btn {
+        background-color: #034078;
+        border-radius: 0.35em;
+        font-size: 1.3rem;
+        color: ghostwhite;
+        padding: 0.6em;
+        border: 1px; }
+      .cartStyle .cartStyle__data .cartStyle__data__price .cartStyle__data__price--btn:hover {
+        cursor: pointer; }
+
+.cartCheckout {
+  text-align: center;
+  margin-bottom: 0rem;
+  font-style: normal;
+  font-size: 1.7rem;
+  color: #0A1128;
+  font-family: "Lato", sans-serif;
+  padding: 0.5em;
+  display: inline-flex;
+  align-content: space-between;
+  gap: 1em;
+  margin: 1em; }
+  .cartCheckout p {
+    margin-bottom: 0rem; }
+  .cartCheckout .cartCheckout--btnPay {
+    display: inline-block;
+    background-color: #034078;
+    border-radius: 0.35em;
+    font-size: 1.3rem;
+    color: ghostwhite;
+    padding: 0.5em;
+    border: 1px; }
+  .cartCheckout .cartCheckout--btnPay:hover {
+    cursor: pointer; }
+
+/* Paleta de Colores */
+/* Modal */
+.modal__container {
+  padding: 1em; }
+
+/* Modal - fondo */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px; }
+
+/* Modal formulario */
+.modal__form {
+  background-color: #FEFCFB;
+  margin: 5px auto;
+  border: 1px solid #888;
+  width: 50%;
+  font-family: "Lato", sans-serif;
+  border-radius: 0.6em; }
+
+/* Campos del formulario */
+.modal__container--inputText, .modal__container--inputPassword {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; }
+
+/* Boton de login dentro del modal */
+#btnLogin {
+  width: 50%;
+  margin-left: 25%; }
+
+/* -------- Reseto general y para pisar estilos del bootstrap-------------- */
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  align-self: center;
+  line-height: normal; }
+
+.row {
+  --bs-gutter-x: 0rem; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+a:hover {
+  color: inherit; }
+
+/* ----- Correccion sobre la posición e los íconos de iconify respecto al texto -------*/
+.iconify {
+  position: relative;
+  vertical-align: middle;
+  bottom: 2px;
+  right: 5px; }
+
+/* --------------- BODY ------------*/
+body {
+  background-color: #FEFCFB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+h1 {
+  padding: 1em;
+  font-style: normal;
+  font-size: 3.5rem;
+  text-align: center;
+  color: #0A1128;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 0.1rem; }
+
+/* ------------------ MAIN -------------------*/
+.sectionMain {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: auto;
+  align-content: stretch;
+  justify-content: space-around;
+  gap: 1em;
+  margin: 0.5em;
+  padding: 0.5em; }
+
+/* ---------------MEDIA QUERYS ----------------- */
+@media (max-width: 600px) {
+  .redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  h1 {
+    font-size: 3rem; } }

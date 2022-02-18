@@ -1,0 +1,7 @@
+node_modules/
+.vscode/
+scss/
+package.json
+package-lock.json
+.gitignore.bak
+readme.md.bak
