@@ -320,6 +320,7 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
   });
 }
 
+/*---------Sección de generación de carrito----------*/
 //Reviso si estoy la página del carrito
 if (page === "SYSTEMMEDIUM - Carrito") {
   if (localStorage.getItem("cart")) {
