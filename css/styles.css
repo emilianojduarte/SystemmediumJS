@@ -154,7 +154,8 @@ footer {
   padding: 1.0em;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
   .contacto fieldset {
     padding: 0.5em;
     width: 100%; }
