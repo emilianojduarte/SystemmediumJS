@@ -3,7 +3,7 @@ const arrayData = [
   {
     id: 1,
     type: "ram",
-    url: "/images/ram1.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram1.jpg",
     enviogratis: false,
     recomendado: true,
     price: 3500,
@@ -12,7 +12,7 @@ const arrayData = [
   {
     id: 2,
     type: "ram",
-    url: "/images/ram2.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram2.jpg",
     enviogratis: true,
     recomendado: false,
     price: 5499,
@@ -21,7 +21,7 @@ const arrayData = [
   {
     id: 3,
     type: "ram",
-    url: "/images/ram3.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram3.jpg",
     enviogratis: true,
     recomendado: true,
     price: 16108,
@@ -30,7 +30,7 @@ const arrayData = [
   {
     id: 4,
     type: "cpuintel",
-    url: "/images/i3.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i3.jpg",
     enviogratis: true,
     recomendado: true,
     price: 26950,
@@ -39,7 +39,7 @@ const arrayData = [
   {
     id: 5,
     type: "cpuintel",
-    url: "/images/i5.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i5.jpg",
     enviogratis: true,
     recomendado: true,
     price: 24999,
@@ -48,7 +48,7 @@ const arrayData = [
   {
     id: 6,
     type: "cpuintel",
-    url: "/images/i7.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i7.jpg",
     enviogratis: false,
     recomendado: true,
     price: 43399,
@@ -57,7 +57,7 @@ const arrayData = [
   {
     id: 7,
     type: "cpuintel",
-    url: "/images/i9.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i9.jpg",
     enviogratis: true,
     recomendado: false,
     price: 55900,
@@ -66,7 +66,7 @@ const arrayData = [
   {
     id: 8,
     type: "cpuamd",
-    url: "/images/r3.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r3.jpg",
     enviogratis: true,
     recomendado: false,
     price: 32662,
@@ -75,7 +75,7 @@ const arrayData = [
   {
     id: 9,
     type: "cpuamd",
-    url: "/images/r5.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r5.jpg",
     enviogratis: false,
     recomendado: true,
     price: 41999,
@@ -84,7 +84,7 @@ const arrayData = [
   {
     id: 10,
     type: "cpuamd",
-    url: "/images/r7.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r7.jpg",
     enviogratis: true,
     recomendado: true,
     price: 61722,
@@ -93,7 +93,7 @@ const arrayData = [
   {
     id: 11,
     type: "cpuamd",
-    url: "/images/r9.jpg",
+    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r9.jpg",
     enviogratis: true,
     recomendado: false,
     price: 77400,
