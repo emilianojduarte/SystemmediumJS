@@ -371,6 +371,7 @@ function dibujarCart() {
       </div>
     </div>`);
   });
+  //Dibujo la sección final con el total a pagar
   $("#sectionMainCart").append(`<div class="cartCheckout">
     <p>Total = $${total}</p> 
     <button class="cartCheckout--btnPay">Pagar</button>
