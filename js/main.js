@@ -344,12 +344,12 @@ function dibujarCart() {
             <p>${producto.description}</p>
         </div>
         <div class="cartStyle__data__counters">
-          <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${producto.id})">
-            + 
-          </div>
-          <div>${producto.cantidad}</div>
           <div class="cartStyle__data__counters--signs" onclick="carrito.removeOne(${producto.id})">
             - 
+          </div>
+          <div>${producto.cantidad}</div>
+          <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${producto.id})">
+            + 
           </div>
         </div>
         <div class="cartStyle__data__price">
