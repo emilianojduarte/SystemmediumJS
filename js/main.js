@@ -104,18 +104,18 @@ let stringRecomendado = "";
 let stringEnvio = "";
 /*--------------------------CLASES------------------------ */
 //Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
-//tiene los métodos para todas las acciones relacionadas al carrito
+//tiene los métodos para todas las acciones relacionadas a este
 class Carrito {
   constructor() {
     this.productos = [];
   }
-  inicializarCarrito() {
+  inicializarCarrito() { //revisa  si existen datos locales para cargarlo
     const cartExist = JSON.parse(localStorage.getItem("cart"));
     if (!!cartExist && cartExist.length > 0 && Array.isArray(cartExist)) {
       cartExist.forEach((producto) => this.productos.push(producto));
     }
   }
-  addToCart(id) {
+  addToCart(id) {//añade un producto al carrito
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -136,7 +136,7 @@ class Carrito {
       }
     }
   }
-  removeOne(id) {
+  removeOne(id) {//resta 1 unidad del seleccionado producto
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -150,7 +150,7 @@ class Carrito {
       }
     }
   }
-  removeItem(id) {
+  removeItem(id) {//elimina el producto del carrito
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -158,10 +158,10 @@ class Carrito {
     this.updateStorage();
     dibujarCart(carrito);
   }
-  updateStorage() {
+  updateStorage() {//actualiza los datos locales
     localStorage.setItem("cart", JSON.stringify(this.productos));
   }
-  getCarrito() {
+  getCarrito() {//devuele lo que haya en el array carrito
     return this.productos;
   }
 }
@@ -171,10 +171,10 @@ class Carrito {
 let carrito = new Carrito();
 carrito.inicializarCarrito();
 
-const page = document.title;
 //Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
+const page = document.title;
 
-/*---Log in---*/
+/*------------------Log in---------------*/
 //Reviso si ya está logueado
 $("document").ready(() => {
   if (localStorage.getItem("token")) {
@@ -184,7 +184,7 @@ $("document").ready(() => {
 });
 //Hago click en el boton login, despliega el modal
 $("#loginBtn").click(function () {
-  //llamar al modal y dibujarlo
+  //llama al modal y lo dibuja
   $(".modal").fadeIn("slow", function () {
     var modalBkg = document.getElementById("modalContainer");
     $(window).click(function (e) {
@@ -230,7 +230,7 @@ const enviarDatos = async (url = "", data = {}) => {
   return response.json();
 };
 
-/*---Sección de generación de card---*/
+/*---------Sección de generación de card----------*/
 //Acá lo que hago en que depenende en qué página estoy, capturo la sección principal correspondiente.
 //Luego leo el array que contienen los productos (que emularia una base de datos) y dibujo las cards.
 if (page === "SYSTEMMEDIUM - Memorias RAM") {
@@ -256,8 +256,8 @@ if (page === "SYSTEMMEDIUM - Memorias RAM") {
                       Agregar al carrito
                     </button>
                 </div></div>`);
-      a = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
-      b = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
+      a = ""; // vuelvo a vaciar las variables, si no me queda con el valor cacheado
+      b = "";
     }
   });
 }
@@ -285,8 +285,8 @@ if (page === "SYSTEMMEDIUM - Procesadores Intel") {
                       Agregar al carrito
                     </button>
                 </div></div>`);
-      a = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
-      b = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
+      a = ""; // vuelvo a vaciar las variables si no me queda con el valor cacheado
+      b = ""; 
     }
   });
 }
@@ -314,13 +314,13 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
             Agregar al carrito
           </button>
       </div></div>`);
-      a = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
-      b = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
+      a = ""; // vuelvo a vaciars la variables si no me queda con el valor cacheado
+      b = "";
     }
   });
 }
 
-// //Reviso si estoy la página del carrito
+//Reviso si estoy la página del carrito
 if (page === "SYSTEMMEDIUM - Carrito") {
   if (localStorage.getItem("cart")) {
     dibujarCart();
@@ -328,7 +328,7 @@ if (page === "SYSTEMMEDIUM - Carrito") {
     $("#sectionMainCart").append(`<h2>Carrito Vacio</h2>`);
   }
 }
-//funcion para escribir la sección del carrito.
+//Funcion para escribir la sección del carrito.
 function dibujarCart() {
   let total = 0;
   $("#sectionMainCart").html("");
