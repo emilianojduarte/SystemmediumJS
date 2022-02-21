@@ -273,7 +273,7 @@ if (page === "SYSTEMMEDIUM - Procesadores Intel") {
       } //Se reemplaza el getElementById por los selectores de jquery
       $("#sectionMainIntel")
         .append(`<div class="card"><div><img src="${producto.url}" class="card__img"
-                alt="foto de producto - memoria procesador intel"></div>
+                alt="foto de producto - procesador intel"></div>
                 <div class="card__txt">
                     <p>
                       ${stringRecomendado}
@@ -301,19 +301,19 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
         stringEnvio = '<span class="card__txt--p4">Envio Gratis</span>';
       } //Se reemplaza el getElementById por los selectores de jquery
       $("#sectionMainAmd")
-        .append(`<div class="card">
-                  <div>
-                    <img src="${producto.url}" class="card__img" alt="foto de producto - memoria intel amd">
-                  </div>
-                <div class="card__txt">
-                    <p>
-                        ${stringRecomendado}
-                        ${stringEnvio}
-                    </p>
-                    <p class="card__txt--p2">$${producto.price}</p>
-                    <p class="card__txt--p3">${producto.description}</p>
-                    <a href="#" id ="addCart${producto.id}" onclick="carrito.addToCart(${producto.id})"><p class="card__txt--p5">Agregar al carrito</p></a>
-                </div></div>`);
+        .append(`<div class="card"><div><img src="${producto.url}" class="card__img"
+      alt="foto de producto - procesador amd"></div>
+      <div class="card__txt">
+          <p>
+            ${stringRecomendado}
+            ${stringEnvio}
+          </p>
+          <p class="card__txt--p2">$${producto.price}</p>
+          <p class="card__txt--p3">${producto.description}</p>
+          <button class="card__txt--p5" onclick="carrito.addToCart(${producto.id})">
+            Agregar al carrito
+          </button>
+      </div></div>`);
       a = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
       b = ""; // vuelvo a vaciar la variable si no me queda con el valor cacheado
     }
@@ -337,24 +337,34 @@ function dibujarCart() {
     $("#sectionMainCart").append(`
     <div class="cartStyle">
       <div class="cartStyle__img">
-        <img src="${producto.url}" class="cartStyle__img--img" alt="imagen del producto">
+        <img src="${
+          producto.url
+        }" class="cartStyle__img--img" alt="imagen del producto">
       </div>
       <div class="cartStyle__data">
         <div class="cartStyle__data--detail">
             <p>${producto.description}</p>
         </div>
         <div class="cartStyle__data__counters">
-          <div class="cartStyle__data__counters--signs" onclick="carrito.removeOne(${producto.id})">
+          <div class="cartStyle__data__counters--signs" onclick="carrito.removeOne(${
+            producto.id
+          })">
             - 
           </div>
           <div>${producto.cantidad}</div>
-          <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${producto.id})">
+          <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${
+            producto.id
+          })">
             + 
           </div>
         </div>
         <div class="cartStyle__data__price">
-          <div class="cartStyle__data__price--amount">$${producto.price * producto.cantidad}</div>
-          <button class="cartStyle__data__price--btn removeProduct" onclick="carrito.removeItem(${producto.id})">
+          <div class="cartStyle__data__price--amount">$${
+            producto.price * producto.cantidad
+          }</div>
+          <button class="cartStyle__data__price--btn removeProduct" onclick="carrito.removeItem(${
+            producto.id
+          })">
           Quitar
           </button>
         </div>
