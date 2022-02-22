@@ -171,6 +171,10 @@ class Carrito {
     //devuele lo que haya en el array carrito
     return this.productos;
   }
+  empetyCart() {
+    //limpia el carrito
+    localStorage.removeItem("cart");
+  }
 }
 
 /*---------------------------------- MAIN -------------------------------*/
@@ -491,5 +495,5 @@ function messageDeliverySucces() {
     <p>Estará recibiendo su compra en las próximas 48hs.<p>
     <p>No olvide revisar su correo para realizar el seguimiento.<p>
   `);
-  
+  carrito.empetyCart();
 }
