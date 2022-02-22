@@ -509,4 +509,5 @@ function messageDeliverySucces() {
     <p>No olvide revisar su correo para realizar el seguimiento.<p>
   `);
   carrito.emptyCart();
+  carrito.counterCart();
 }
