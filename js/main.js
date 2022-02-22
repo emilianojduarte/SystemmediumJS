@@ -116,6 +116,7 @@ class Carrito {
     if (!!cartExist && cartExist.length > 0 && Array.isArray(cartExist)) {
       cartExist.forEach((producto) => this.productos.push(producto));
     }
+    this.counterCart();
   }
   addToCart(id) {
     //añade un producto al carrito
@@ -186,6 +187,7 @@ class Carrito {
 //Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
 let carrito = new Carrito();
 carrito.inicializarCarrito();
+carrito.counterCart();
 
 //Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
 const page = document.title;
