@@ -303,6 +303,9 @@ footer {
     padding: 0.5em;
     border: 1px; }
 
+.delivery {
+  display: none; }
+
 /* Paleta de Colores */
 /* Modal */
 .modal {

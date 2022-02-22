@@ -424,94 +424,94 @@ function deliver() {
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
   $("#sectionMainCart").html("");
-  $("#sectionMainCart").append(`
-  <form class="delivery">
-        <fieldset class="">
-            <legend class="">Datos Personales</legend>
-            <div class="">
-                <label for="inputNombre" class="form-label">Nombre/s</label>
-                <input type="text" class="form-control" id="inputNombre"
-                    placeholder="Ingrese su nombre o nombres">
-            </div>
-            <div class="">
-                <label for="inputApellido" class="form-label">Apellido/s</label>
-                <input type="text" class="form-control" id="inputApellido"
-                    placeholder="Ingrese su apellido o apellidos">
-            </div>
-            <div class="">
-                <label for="inputEdad" class="form-label">Edad</label>
-                <input type="number" class="form-control" id="inputEdad" placeholder="Ingrese su edad">
-            </div>
-            <div class="">
-                <label for="inputDni" class="form-label">DNI</label>
-                <input type="number" class="form-control" id="inputDni" placeholder="Ingrese su DNI">
-            </div>
-        </fieldset>
-        <fieldset class="">
-          <legend class="">Dirección de entrega</legend>
-          <div class="">
-              <label for="inputDireccion" class="form-label">Dirección</label>
-              <input type="text" class="form-control" id="inputDireccion" placeholder="Nombre de Calle 12345">
-          </div>
-          <div class="">
-              <label for="inputCp" class="form-label">Código Postal</label>
-              <input type="number" class="form-control" id="inputCp" placeholder="Ingrese su CP">
-          </div>
-          <div class="">
-              <label for="inputProvincia" class="form-label">Provincia</label>
-              <select id="inputProvincia" class="form-select">
-                  <option selected>Seleccione...</option>
-                  <option>CABA</option>
-                  <option>Buenos Aires</option>
-                  <option>Catamarca</option>
-                  <option>Chaco</option>
-                  <option>Chubut</option>
-                  <option>Córdoba</option>
-                  <option>Corrientes</option>
-                  <option>Entre Rios</option>
-                  <option>Formosa</option>
-                  <option>Jujuy</option>
-                  <option>La Pampa</option>
-                  <option>La Rioja</option>
-                  <option>Mendoza</option>
-                  <option>Misiones</option>
-                  <option>Neuquén</option>
-                  <option>Río Negro</option>
-                  <option>Salta</option>
-                  <option>San Juan</option>
-                  <option>San Luis</option>
-                  <option>Santa Cruz</option>
-                  <option>Santa Fe</optio>
-                  <option>Santiago del Estero</option>
-                  <option>Tierra del Fuego</option>
-                  <option>Tucumán</option>
-              </select>
-          </div>
-        </fieldset>
-        <fieldset clas="">
-          <legend class="">Datos de contacto</legend>
-            <div class="">
-                <label for="inputMail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputMail" placeholder="Ingrese su email">
-            </div>
-            <div class="">
-                <label for="inputCel" class="form-label">Celular</label>
-                <input type="number" class="form-control" id="inputCel" placeholder="Ingrese su celular">
-            </div>
-        </fieldset>
-        <fieldset class="delivery__end">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">Acepto los Términos y
-                  Condiciones</label>
-          </div>
-          <div class="delivery__end__buttons">
-              <button type="submit" class="btn btn-secondary" onclick="messageDeliverySucces()">Enviar</button>
-              <button type="reset" class="btn btn-secondary">Limpiar</button>
-          </div>
-        </fieldset>
-    </form>
-  `);
+  $("#sectionMainCart").append(`<form class="delivery">
+    <fieldset class="">
+      <legend class="">Datos Personales</legend>
+      <div class="">
+          <label for="inputNombre" class="form-label">Nombre/s</label>
+          <input type="text" class="form-control" id="inputNombre"
+              placeholder="Ingrese su nombre o nombres" required>
+      </div>
+      <div class="">
+          <label for="inputApellido" class="form-label">Apellido/s</label>
+          <input type="text" class="form-control" id="inputApellido"
+              placeholder="Ingrese su apellido o apellidos" required>
+      </div>
+      <div class="">
+          <label for="inputEdad" class="form-label">Edad</label>
+          <input type="number" class="form-control" id="inputEdad" placeholder="Ingrese su edad" required>
+      </div>
+      <div class="">
+          <label for="inputDni" class="form-label">DNI</label>
+          <input type="number" class="form-control" id="inputDni" placeholder="Ingrese su DNI" required>
+      </div>
+    </fieldset>
+    <fieldset class="">
+        <legend class="">Dirección de entrega</legend>
+        <div class="">
+            <label for="inputDireccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="inputDireccion" placeholder="Nombre de Calle 12345" required>
+        </div>
+        <div class="">
+            <label for="inputCp" class="form-label">Código Postal</label>
+            <input type="number" class="form-control" id="inputCp" placeholder="Ingrese su CP" required>
+        </div>
+        <div class="">
+            <label for="inputProvincia" class="form-label">Provincia</label>
+            <select id="inputProvincia" class="form-select">
+                <option selected>Seleccione...</option>
+                <option>CABA</option>
+                <option>Buenos Aires</option>
+                <option>Catamarca</option>
+                <option>Chaco</option>
+                <option>Chubut</option>
+                <option>Córdoba</option>
+                <option>Corrientes</option>
+                <option>Entre Rios</option>
+                <option>Formosa</option>
+                <option>Jujuy</option>
+                <option>La Pampa</option>
+                <option>La Rioja</option>
+                <option>Mendoza</option>
+                <option>Misiones</option>
+                <option>Neuquén</option>
+                <option>Río Negro</option>
+                <option>Salta</option>
+                <option>San Juan</option>
+                <option>San Luis</option>
+                <option>Santa Cruz</option>
+                <option>Santa Fe</optio>
+                <option>Santiago del Estero</option>
+                <option>Tierra del Fuego</option>
+                <option>Tucumán</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset clas="">
+        <legend class="">Datos de contacto</legend>
+        <div class="">
+            <label for="inputMail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputMail" placeholder="Ingrese su email" required>
+        </div>
+        <div class="">
+            <label for="inputCel" class="form-label">Celular</label>
+            <input type="number" class="form-control" id="inputCel" placeholder="Ingrese su celular" required>
+        </div>
+    </fieldset>
+    <fieldset class="delivery__end">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">Acepto los Términos y
+                Condiciones</label>
+        </div>
+        <div class="delivery__end__buttons">
+            <button type="submit" class="btn btn-secondary" onclick="messageDeliverySucces()">Enviar</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+        </div>
+    </fieldset>
+  </form>`).hide().fadeIn("slow");
+  //el problema probablemente es que al hacer click en el booton llamo directo a "messageDeliverySucces"
+  //quizas habria que poner un event listener para que al enviarse ahí recién pase a la siguiente fucnion
 }
 
 function messageDeliverySucces() {
@@ -524,7 +524,7 @@ function messageDeliverySucces() {
     <p>Muchas gracias por su compra ${nombreCliente}!<p>
     <p>Estará recibiendo su compra en las próximas 48hs.<p>
     <p>No olvide revisar su correo para realizar el seguimiento.<p>
-  `);
+  `).hide().fadeIn("slow");
   carrito.emptyCart();
   carrito.counterCart();
 }
