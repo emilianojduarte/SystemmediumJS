@@ -110,13 +110,15 @@ class Carrito {
   constructor() {
     this.productos = [];
   }
-  inicializarCarrito() { //revisa  si existen datos locales para cargarlo
+  inicializarCarrito() {
+    //revisa  si existen datos locales para cargarlo
     const cartExist = JSON.parse(localStorage.getItem("cart"));
     if (!!cartExist && cartExist.length > 0 && Array.isArray(cartExist)) {
       cartExist.forEach((producto) => this.productos.push(producto));
     }
   }
-  addToCart(id) {//añade un producto al carrito
+  addToCart(id) {
+    //añade un producto al carrito
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -137,7 +139,8 @@ class Carrito {
       }
     }
   }
-  removeOne(id) {//resta 1 unidad del seleccionado producto
+  removeOne(id) {
+    //resta 1 unidad del seleccionado producto
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -151,7 +154,8 @@ class Carrito {
       }
     }
   }
-  removeItem(id) {//elimina el producto del carrito
+  removeItem(id) {
+    //elimina el producto del carrito
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
@@ -159,10 +163,12 @@ class Carrito {
     this.updateStorage();
     dibujarCart(carrito);
   }
-  updateStorage() {//actualiza los datos locales
+  updateStorage() {
+    //actualiza los datos locales
     localStorage.setItem("cart", JSON.stringify(this.productos));
   }
-  getCarrito() {//devuele lo que haya en el array carrito
+  getCarrito() {
+    //devuele lo que haya en el array carrito
     return this.productos;
   }
 }
@@ -287,7 +293,7 @@ if (page === "SYSTEMMEDIUM - Procesadores Intel") {
                     </button>
                 </div></div>`);
       a = ""; // vuelvo a vaciar las variables si no me queda con el valor cacheado
-      b = ""; 
+      b = "";
     }
   });
 }
@@ -379,7 +385,7 @@ function dibujarCart() {
     </div>`);
 }
 
-function deliver(){
+function deliver() {
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
   $("#sectionMainCart").html("");
@@ -484,9 +490,9 @@ function deliver(){
                     </div>
                 </div>
             </form>
-  `)
+  `);
 }
 
-function messageDeliverySucces(){
+function messageDeliverySucces() {
   console.log("Funciona");
 }
