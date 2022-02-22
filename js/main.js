@@ -342,59 +342,64 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
 /*---------Sección de generación de carrito----------*/
 //Reviso si estoy la página del carrito
 if (page === "SYSTEMMEDIUM - Carrito") {
-  if (localStorage.getItem("cart") && l > 0) {
-    dibujarCart();
-  } else {
-    $("#sectionMainCart").append(`<h2>Carrito Vacio</h2>`);
-  }
+  dibujarCart();
 }
 //Funcion para escribir la sección del carrito.
 function dibujarCart() {
-  $("#sectionMainCart").html("");
-  carrito.getCarrito().forEach((producto) => {
-    total = total + producto.price * producto.cantidad;
-    $("#sectionMainCart").append(`
-    <div class="cartStyle">
-      <div class="cartStyle__img">
-        <img src="${
-          producto.url
-        }" class="cartStyle__img--img" alt="imagen del producto">
-      </div>
-      <div class="cartStyle__data">
-        <div class="cartStyle__data--detail">
-            <p>${producto.description}</p>
-        </div>
-        <div class="cartStyle__data__counters">
-          <div class="cartStyle__data__counters--signs" onclick="carrito.removeOne(${
-            producto.id
-          })">
-            - 
+  if (localStorage.getItem("cart") && l > 0){
+    $("#sectionMainCart").html("");
+    carrito.getCarrito().forEach((producto) => {
+      total = total + producto.price * producto.cantidad;
+      $("#sectionMainCart").append(`
+        <div class="cartStyle">
+          <div class="cartStyle__img">
+            <img src="${
+              producto.url
+            }" class="cartStyle__img--img" alt="imagen del producto">
           </div>
-          <div>${producto.cantidad}</div>
-          <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${
-            producto.id
-          })">
-            + 
+          <div class="cartStyle__data">
+            <div class="cartStyle__data--detail">
+                <p>${producto.description}</p>
+            </div>
+            <div class="cartStyle__data__counters">
+              <div class="cartStyle__data__counters--signs" onclick="carrito.removeOne(${
+                producto.id
+              })">
+                - 
+              </div>
+              <div>${producto.cantidad}</div>
+              <div class="cartStyle__data__counters--signs" onclick="carrito.addToCart(${
+                producto.id
+              })">
+                + 
+              </div>
+            </div>
+            <div class="cartStyle__data__price">
+              <div class="cartStyle__data__price--amount">$${
+                producto.price * producto.cantidad
+              }</div>
+              <button class="cartStyle__data__price--btn removeProduct" onclick="carrito.removeItem(${
+                producto.id
+              })">
+              Quitar
+              </button>
+            </div>
           </div>
         </div>
-        <div class="cartStyle__data__price">
-          <div class="cartStyle__data__price--amount">$${
-            producto.price * producto.cantidad
-          }</div>
-          <button class="cartStyle__data__price--btn removeProduct" onclick="carrito.removeItem(${
-            producto.id
-          })">
-          Quitar
-          </button>
-        </div>
+      `);
+    });
+    //Dibujo la sección final con el total a pagar
+    $("#sectionMainCart").append(`<div class="cartCheckout">
+      <p>Total = $${total}</p> 
+      <button class="cartCheckout--btnPay" onclick="deliver()">Pagar y Enviar</button>
       </div>
-    </div>`);
-  });
-  //Dibujo la sección final con el total a pagar
-  $("#sectionMainCart").append(`<div class="cartCheckout">
-    <p>Total = $${total}</p> 
-    <button class="cartCheckout--btnPay" onclick="deliver()">Pagar y Enviar</button>
-    </div>`);
+    `);
+  }else {
+    $("#sectionMainCart").html("");
+    $("#sectionMainCart").append(`<h2>Carrito Vacio</h2>
+    <p>No hay nada en el carrito, es hora de elegir alguno productos!</p>
+    `);
+  }
 }
 
 function deliver() {
