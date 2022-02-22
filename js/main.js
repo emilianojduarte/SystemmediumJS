@@ -166,14 +166,19 @@ class Carrito {
   updateStorage() {
     //actualiza los datos locales
     localStorage.setItem("cart", JSON.stringify(this.productos));
+    this.counterCart();
   }
   getCarrito() {
     //devuele lo que haya en el array carrito
     return this.productos;
   }
-  empetyCart() {
+  emptyCart() {
     //limpia el carrito
     localStorage.removeItem("cart");
+  }
+  counterCart(){
+    let l = this.productos.length;
+    $("#counter").text(`${l}`);
   }
 }
 
@@ -385,7 +390,7 @@ function dibujarCart() {
   //Dibujo la sección final con el total a pagar
   $("#sectionMainCart").append(`<div class="cartCheckout">
     <p>Total = $${total}</p> 
-    <button class="cartCheckout--btnPay" onclick="deliver()">Pagar</button>
+    <button class="cartCheckout--btnPay" onclick="deliver()">Pagar y Enviar</button>
     </div>`);
 }
 
@@ -495,5 +500,5 @@ function messageDeliverySucces() {
     <p>Estará recibiendo su compra en las próximas 48hs.<p>
     <p>No olvide revisar su correo para realizar el seguimiento.<p>
   `);
-  carrito.empetyCart();
+  carrito.emptyCart();
 }

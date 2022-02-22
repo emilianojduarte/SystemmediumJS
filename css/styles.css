@@ -109,6 +109,12 @@ header {
     .header__div nav ul {
       padding-left: 0;
       margin-bottom: 0; }
+      .header__div nav ul li #counter {
+        color: #0A1128;
+        background-color: ghostwhite;
+        border-radius: 15%;
+        padding-inline: 0.3em;
+        font-size: 1rem; }
     .header__div nav li {
       display: inline-block;
       position: relative;
