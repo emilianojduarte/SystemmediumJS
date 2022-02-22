@@ -103,6 +103,7 @@ const arrayData = [
 let stringRecomendado = "";
 let stringEnvio = "";
 let total = 0;
+let l = 0;
 /*--------------------------CLASES------------------------ */
 //Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
 //tiene los métodos para todas las acciones relacionadas a este
@@ -178,7 +179,7 @@ class Carrito {
     localStorage.removeItem("cart");
   }
   counterCart(){
-    let l = this.productos.length;
+    l = this.productos.length;
     $("#counter").text(`${l}`);
   }
 }
@@ -341,7 +342,7 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
 /*---------Sección de generación de carrito----------*/
 //Reviso si estoy la página del carrito
 if (page === "SYSTEMMEDIUM - Carrito") {
-  if (localStorage.getItem("cart")) {
+  if (localStorage.getItem("cart") && l > 0) {
     dibujarCart();
   } else {
     $("#sectionMainCart").append(`<h2>Carrito Vacio</h2>`);
