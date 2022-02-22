@@ -480,5 +480,16 @@ function deliver() {
 }
 
 function messageDeliverySucces() {
-  console.log("Funciona");
+  $("#titleCart").html("");
+  $("#titleCart").text("Muchas Gracias");
+  const nombreCliente = document.getElementById("inputNombre").value;
+  console.log(nombreCliente);
+  $("#sectionMainCart").html("");
+  $("#sectionMainCart").append(`
+  <div>
+    <p>Muchas gracias por su compra ${nombreCliente}!<p>
+    <p>Estará recibiendo su compra en las próximas 48hs.<p>
+    <p>No olvide revisar su correo para realizar el seguimiento.<p>
+  `);
+  
 }
