@@ -12,6 +12,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 .card {
   display: flex;
   flex-direction: column;
@@ -343,6 +344,39 @@ footer {
 /* Paleta de Colores */
 .aboutus__txt {
   width: 80%; }
+
+/* Estilos para el formulario de contacto */
+/* Paleta de Colores */
+/* Mixing */
+.delivery {
+  font-family: "Lato", sans-serif;
+  color: #0A1128;
+  font-style: normal;
+  padding: 1.0em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%; }
+  .delivery fieldset {
+    padding: 0.5em;
+    width: 100%; }
+    .delivery fieldset div label {
+      padding: 0.4em;
+      margin-bottom: 0; }
+    .delivery fieldset legend {
+      font-size: 1.5rem;
+      padding: 0.3em; }
+  .delivery .delivery__end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .delivery .delivery__end .form-check-input {
+      margin-top: 0.6em; }
+    .delivery .delivery__end .delivery__end__buttons {
+      margin-block: 0.75em; }
+      .delivery .delivery__end .delivery__end__buttons button {
+        margin-inline: 1.5em; }
 
 /* -------- Reseto general y para pisar estilos del bootstrap-------------- */
 * {
