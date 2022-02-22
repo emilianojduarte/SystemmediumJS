@@ -46,7 +46,7 @@
     <!-- Main -->
     <main>
         <!-- Modal de Login - Fondo -->
-        <div id="modalContainer" class="modal">
+        <div id="modalContainerIn" class="modal">
             <!-- Modal de Login - Formulario -->
             <form class="modal__form" id="loginForm">
                 <div class="modal__container">
@@ -56,6 +56,16 @@
                     <input type="password" class="modal__container--inputPassword" id="loginForm--pass" placeholder="Ingrese su contraseña . . ." name="psw" required>
                     <div id="loginForm--error"></div>
                     <button type="submit" id="btnLogin" class="btn btn-secondary">Ingresar</button>
+                </div>
+            </form>
+        </div>
+        <!-- Modal de LogOff - Fondo -->
+        <div id="modalContainerOff" class="modal">
+            <!-- Modal de Login - Formulario -->
+            <form class="modal__form" id="logoffForm">
+                <div class="modal__container">
+                    <p>Para cerrar su sessión presione el botón salir</p>
+                    <button type="submit" id="btnLogOff" class="btn btn-secondary">Salir</button>
                 </div>
             </form>
         </div>

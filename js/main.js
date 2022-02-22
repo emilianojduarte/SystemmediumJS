@@ -201,19 +201,37 @@ $("document").ready(() => {
     $("#loginBtn").text(user);
   }
 });
-//Hago click en el boton login, despliega el modal
+//Hago click en el boton login, y entra en condición según si ya está logueado o no
 $("#loginBtn").click(function () {
-  //llama al modal y lo dibuja
-  $(".modal").fadeIn("slow", function () {
-    var modalBkg = document.getElementById("modalContainer");
-    $(window).click(function (e) {
-      if (e.target == modalBkg) {
-        $("#modalContainer").fadeOut("slow");
-      }
+  if (localStorage.getItem("token")) {
+    //llama al modal log off y lo dibuja
+    $("#modalContainerOff").fadeIn("slow", function () {
+      var modalBkg = document.getElementById("modalContainerOff");
+      $(window).click(function (e) {
+        if (e.target == modalBkg) {
+          $("#modalContainerOff").fadeOut("slow");
+        }
+      });
     });
-  });
+  }else{
+    //llama al modal log in y lo dibuja
+    $("#modalContainerIn").fadeIn("slow", function () {
+      var modalBkg = document.getElementById("modalContainerIn");
+      $(window).click(function (e) {
+        if (e.target == modalBkg) {
+          $("#modalContainerIn").fadeOut("slow");
+        }
+      });
+    });
+  }
 });
-//llamada a la API luego de presionar el boton de login
+//Deslogueo
+$("#logoffForm").submit(function (e) {
+  e.preventDefault();
+  localStorage.clear();
+  location.reload();
+});
+//Llamada a la API luego de presionar el boton de login
 $("#loginForm").submit(async (e) => {
   e.preventDefault();
   $("#loginForm--error").text("");
@@ -224,7 +242,7 @@ $("#loginForm").submit(async (e) => {
     password,
   });
   if (!!resultPetition.token) {
-    $("#modalContainer").fadeOut("slow");
+    $("#modalContainerIn").fadeOut("slow");
     localStorage.setItem("token", resultPetition.token);
     localStorage.setItem("email", email);
     //Las 2 lineas siguientes son para que luego de loguearme correctamente
@@ -500,7 +518,6 @@ function messageDeliverySucces() {
   $("#titleCart").html("");
   $("#titleCart").text("Muchas Gracias");
   const nombreCliente = document.getElementById("inputNombre").value;
-  console.log(nombreCliente);
   $("#sectionMainCart").html("");
   $("#sectionMainCart").append(`
   <div>

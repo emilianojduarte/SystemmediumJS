@@ -305,10 +305,6 @@ footer {
 
 /* Paleta de Colores */
 /* Modal */
-.modal__container {
-  padding: 1em; }
-
-/* Modal - fondo */
 .modal {
   display: none;
   position: fixed;
@@ -321,27 +317,26 @@ footer {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
   padding-top: 60px; }
-
-/* Modal formulario */
-.modal__form {
-  background-color: #FEFCFB;
-  margin: 5px auto;
-  border: 1px solid #888;
-  width: 50%;
-  font-family: "Lato", sans-serif;
-  border-radius: 0.6em; }
-
-/* Campos del formulario */
-.modal__container--inputText, .modal__container--inputPassword {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box; }
+  .modal .modal__form {
+    background-color: #FEFCFB;
+    margin: 5px auto;
+    border: 1px solid #888;
+    width: 50%;
+    font-family: "Lato", sans-serif;
+    border-radius: 0.6em; }
+    .modal .modal__form .modal__container {
+      padding: 1em;
+      text-align: center; }
+      .modal .modal__form .modal__container .modal__container--inputText, .modal .modal__form .modal__container .modal__container--inputPassword {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box; }
 
 /* Boton de login dentro del modal */
-#btnLogin {
+#btnLogin #btnLogOff {
   width: 50%;
   margin-left: 25%; }
 
