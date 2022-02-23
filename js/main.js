@@ -90,7 +90,7 @@ class Carrito {
 /*---------------------------------- MAIN -------------------------------*/
 //Cargo los productos para tener que hacer una sola consulta
 $.ajax({
-  url: "https://emilianojduarte.github.io/SystemmediumJS/dat/listado.json",
+  url: "https://emilianojduarte.github.io/SystemmediumJS/data/listado.json",
   dataType: "json",
   success: (respuesta) => {
     arrayData = respuesta;
