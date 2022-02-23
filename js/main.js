@@ -547,8 +547,8 @@ function messageContactSucces(){
   `);
 }
 
-
 //----Pendiente
+//carrousel de bootsrap a js
 //pasar el array de productos a un archivo JSON
 //animacion de los botones
 //quizas un switch case para saber en que hoja estoy en lugar de if sueltos
