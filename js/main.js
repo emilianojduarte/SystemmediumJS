@@ -104,6 +104,7 @@ let stringRecomendado = "";
 let stringEnvio = "";
 let total = 0;
 let l = 0;
+let formEnvio;
 /*--------------------------CLASES------------------------ */
 //Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
 //tiene los métodos para todas las acciones relacionadas a este
@@ -111,11 +112,13 @@ class Carrito {
   constructor() {
     this.productos = [];
   }
-  inicializarCarrito() {
+  initCart() {
     //revisa  si existen datos locales para cargarlo
     const cartExist = JSON.parse(localStorage.getItem("cart"));
     if (!!cartExist && cartExist.length > 0 && Array.isArray(cartExist)) {
       cartExist.forEach((producto) => this.productos.push(producto));
+    }else{
+      this.productos = [];
     }
     this.counterCart();
   }
@@ -187,7 +190,7 @@ class Carrito {
 /*---------------------------------- MAIN -------------------------------*/
 //Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
 let carrito = new Carrito();
-carrito.inicializarCarrito();
+carrito.initCart();
 carrito.counterCart();
 
 //Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
@@ -409,13 +412,13 @@ function dibujarCart() {
     //Dibujo la sección final con el total a pagar
     $("#sectionMainCart").append(`<div class="cartCheckout">
       <p>Total = $${total}</p> 
-      <button class="cartCheckout--btnPay" onclick="deliver()">Pagar y Enviar</button>
+      <button class="cartCheckout--btnPay" onclick="deliver()">Enviar</button>
       </div>
     `);
   }else {
     $("#sectionMainCart").html("");
     $("#sectionMainCart").append(`<h2>Carrito Vacio</h2>
-    <p>No hay nada en el carrito, es hora de elegir alguno productos!</p>
+    <p>No hay nada en el carrito, es hora de elegir algunos productos!</p>
     `);
   }
 }
@@ -424,7 +427,7 @@ function deliver() {
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
   $("#sectionMainCart").html("");
-  $("#sectionMainCart").append(`<form class="delivery">
+  $("#sectionMainCart").append(`<form class="delivery" id="delivery">
     <fieldset class="">
       <legend class="">Datos Personales</legend>
       <div class="">
@@ -505,13 +508,14 @@ function deliver() {
                 Condiciones</label>
         </div>
         <div class="delivery__end__buttons">
-            <button type="submit" class="btn btn-secondary" onclick="messageDeliverySucces()">Enviar</button>
+            <button type="submit" class="btn btn-secondary">Enviar</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
         </div>
     </fieldset>
-  </form>`).hide().fadeIn("slow");
-  //el problema probablemente es que al hacer click en el booton llamo directo a "messageDeliverySucces"
-  //quizas habria que poner un event listener para que al enviarse ahí recién pase a la siguiente fucnion
+  </form>`)
+  .hide()
+  .fadeIn("slow")
+  .on("submit", messageDeliverySucces);
 }
 
 function messageDeliverySucces() {
@@ -526,5 +530,11 @@ function messageDeliverySucces() {
     <p>No olvide revisar su correo para realizar el seguimiento.<p>
   `).hide().fadeIn("slow");
   carrito.emptyCart();
-  carrito.counterCart();
+  carrito.initCart();
 }
+
+//----Pendiente
+//pasar el array de productos a un archivo JSON
+//formulario de contacto -> correciones en el html, JS y envio del formulario
+//animacion de los botones
+
