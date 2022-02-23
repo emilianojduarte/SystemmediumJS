@@ -1,5 +1,4 @@
 /*-------------------------VARIABLES--------------------*/
-let arrayData = [];
 let stringRecomendado = "";
 let stringEnvio = "";
 let total = 0;
@@ -22,12 +21,15 @@ class Carrito {
     }
     this.counterCart();
   }
-  addToCart(id) {
+  async addToCart(id) {
     //añade un producto al carrito
     const indiceEncontrado = this.productos.findIndex((producto) => {
       return producto.id === id;
     });
     if (indiceEncontrado === -1) {
+      let arrayData = await getDatos();
+      //let arrayData = JSON.parse(localStorage.getItem("data"));//tuve que hacerlo así porque no me funcionaba de otra manera.
+      //como no le puedo poner el async arrayData me queda en 0
       const productoAgregar = arrayData.find((producto) => producto.id === id);
       productoAgregar.cantidad = 1;
       this.productos.push(productoAgregar);
@@ -87,101 +89,27 @@ class Carrito {
   }
 }
 
-/*---------------------------------- MAIN -------------------------------*/
-//Cargo los productos para tener que hacer una sola consulta
-$.ajax({
-  url: "https://emilianojduarte.github.io/SystemmediumJS/data/listado.json",
-  dataType: "json",
-  success: (respuesta) => {
-    arrayData = respuesta;
-  },
-});
-//Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
-let carrito = new Carrito();
-carrito.initCart();
-carrito.counterCart();
-
-//Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
-const page = document.title;
-
-/*------------------Log in---------------*/
-//Reviso si ya está logueado
-$("document").ready(() => {
-  if (localStorage.getItem("token")) {
-    const user = localStorage.getItem("email").split("@")[0];
-    $("#loginBtn").text(user);
-  }
-});
-//Hago click en el boton login, y entra en condición según si ya está logueado o no
-$("#loginBtn").click(function () {
-  if (localStorage.getItem("token")) {
-    //llama al modal log off y lo dibuja
-    $("#modalContainerOff").fadeIn("slow", function () {
-      var modalBkg = document.getElementById("modalContainerOff");
-      $(window).click(function (e) {
-        if (e.target == modalBkg) {
-          $("#modalContainerOff").fadeOut("slow");
-        }
-      });
+/*-------------------------------- FUNCIONES ------------------------------*/
+async function getDatos(){
+  let datos= [];
+  try{
+    datos = await $.ajax({
+      url: "https://emilianojduarte.github.io/SystemmediumJS/data/listado.json",
+      type: 'GET',
+      dataType: "json",
+      success: (respuesta) => {
+        return respuesta;
+      },
     });
-  }else{
-    //llama al modal log in y lo dibuja
-    $("#modalContainerIn").fadeIn("slow", function () {
-      var modalBkg = document.getElementById("modalContainerIn");
-      $(window).click(function (e) {
-        if (e.target == modalBkg) {
-          $("#modalContainerIn").fadeOut("slow");
-        }
-      });
-    });
+    localStorage.setItem("data", JSON.stringify(datos));
+    return datos;
+  }catch (error){
+    console.log("Error al obtener los datos");
   }
-});
-//Deslogueo
-$("#logoffForm").submit(function (e) {
-  e.preventDefault();
-  localStorage.clear();
-  location.reload();
-});
-//Llamada a la API luego de presionar el boton de login
-$("#loginForm").submit(async (e) => {
-  e.preventDefault();
-  $("#loginForm--error").text("");
-  const email = $("#loginForm--email").val();
-  const password = $("#loginForm--pass").val();
-  const resultPetition = await enviarDatos("https://reqres.in/api/login", {
-    email,
-    password,
-  });
-  if (!!resultPetition.token) {
-    $("#modalContainerIn").fadeOut("slow");
-    localStorage.setItem("token", resultPetition.token);
-    localStorage.setItem("email", email);
-    //Las 2 lineas siguientes son para que luego de loguearme correctamente
-    //no requiera refrescar la página para que se me actualice el nombre
-    const user = localStorage.getItem("email").split("@")[0];
-    $("#loginBtn").text(user);
-  } else {
-    $("#loginForm--error").addClass("text-danger");
-    $("#loginForm--error").text("Correo o contraseña incorrecto.");
-  }
-});
-const enviarDatos = async (url = "", data = {}) => {
-  $("#btnLogin").text("Cargando...");
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  $("#btnLogin").text("Ingresar");
-  return response.json();
-};
+}
 
-/*---------Sección de generación de card----------*/
-//Acá lo que hago en que depenende en qué página estoy, capturo la sección principal correspondiente.
-//Luego leo el array que contienen los productos (que emularia una base de datos) y dibujo las cards.
-if (page === "SYSTEMMEDIUM - Memorias RAM") {
+async function dibujarRam(){
+  let arrayData = await getDatos();
   arrayData.forEach((producto) => {
     if (producto.type === "ram") {
       if (producto.recomendado == true) {
@@ -209,8 +137,9 @@ if (page === "SYSTEMMEDIUM - Memorias RAM") {
     }
   });
 }
-//genera tarjetas en la sección de ProcesadoresIntel
-if (page === "SYSTEMMEDIUM - Procesadores Intel") {
+
+async function dibujarIntel(){
+  let arrayData = await getDatos();
   arrayData.forEach((producto) => {
     if (producto.type === "cpuintel") {
       if (producto.recomendado == true) {
@@ -238,8 +167,9 @@ if (page === "SYSTEMMEDIUM - Procesadores Intel") {
     }
   });
 }
-//genera tarjetas en la sección de ProcesadoresAmd
-if (page === "SYSTEMMEDIUM - Procesadores AMD") {
+
+async function dibujarAmd(){
+  let arrayData = await getDatos();
   arrayData.forEach((producto) => {
     if (producto.type === "cpuamd") {
       if (producto.recomendado == true) {
@@ -268,12 +198,6 @@ if (page === "SYSTEMMEDIUM - Procesadores AMD") {
   });
 }
 
-/*---------Sección de generación de carrito----------*/
-//Reviso si estoy la página del carrito
-if (page === "SYSTEMMEDIUM - Carrito") {
-  dibujarCart();
-}
-//Funcion para escribir la sección del carrito.
 function dibujarCart() {
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
@@ -441,9 +365,6 @@ function messageDeliverySucces() {
   carrito.initCart();
 }
 
-if (page === "SYSTEMMEDIUM - Contacto") {
-  $("#sectionMainContact").on("submit", messageContactSucces);
-}
 function messageContactSucces(){
   $("#titleContact").html("");
   $("#titleContact").text("Gracias por su contacto");
@@ -455,7 +376,107 @@ function messageContactSucces(){
   `);
 }
 
+/*---------------------------------- MAIN -------------------------------*/
+//Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
+let carrito = new Carrito();
+carrito.initCart();
+carrito.counterCart();
+//Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
+const page = document.title;
+/*------------------Log in---------------*/
+//Reviso si ya está logueado
+$("document").ready(() => {
+  if (localStorage.getItem("token")) {
+    const user = localStorage.getItem("email").split("@")[0];
+    $("#loginBtn").text(user);
+  }
+});
+//Hago click en el boton login, y entra en condición según si ya está logueado o no
+$("#loginBtn").click(function () {
+  if (localStorage.getItem("token")) {
+    //llama al modal log off y lo dibuja
+    $("#modalContainerOff").fadeIn("slow", function () {
+      var modalBkg = document.getElementById("modalContainerOff");
+      $(window).click(function (e) {
+        if (e.target == modalBkg) {
+          $("#modalContainerOff").fadeOut("slow");
+        }
+      });
+    });
+  }else{
+    //llama al modal log in y lo dibuja
+    $("#modalContainerIn").fadeIn("slow", function () {
+      var modalBkg = document.getElementById("modalContainerIn");
+      $(window).click(function (e) {
+        if (e.target == modalBkg) {
+          $("#modalContainerIn").fadeOut("slow");
+        }
+      });
+    });
+  }
+});
+//Deslogueo
+$("#logoffForm").submit(function (e) {
+  e.preventDefault();
+  localStorage.clear();
+  location.reload();
+});
+//Llamada a la API luego de presionar el boton de login
+$("#loginForm").submit(async (e) => {
+  e.preventDefault();
+  $("#loginForm--error").text("");
+  const email = $("#loginForm--email").val();
+  const password = $("#loginForm--pass").val();
+  const resultPetition = await enviarDatos("https://reqres.in/api/login", {
+    email,
+    password,
+  });
+  if (!!resultPetition.token) {
+    $("#modalContainerIn").fadeOut("slow");
+    localStorage.setItem("token", resultPetition.token);
+    localStorage.setItem("email", email);
+    //Las 2 lineas siguientes son para que luego de loguearme correctamente
+    //no requiera refrescar la página para que se me actualice el nombre
+    const user = localStorage.getItem("email").split("@")[0];
+    $("#loginBtn").text(user);
+  } else {
+    $("#loginForm--error").addClass("text-danger");
+    $("#loginForm--error").text("Correo o contraseña incorrecto.");
+  }
+});
+const enviarDatos = async (url = "", data = {}) => {
+  $("#btnLogin").text("Cargando...");
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  $("#btnLogin").text("Ingresar");
+  return response.json();
+};
+
+/*---------Sección de generación de pagina----------*/
+//Acá lo que hago depende en qué página estoy, capturo la sección principal correspondiente.
+switch (page){
+  case "SYSTEMMEDIUM - Memorias RAM":
+    dibujarRam();
+    break;
+  case "SYSTEMMEDIUM - Procesadores Intel":
+    dibujarIntel();
+    break;
+  case "SYSTEMMEDIUM - Procesadores AMD":
+    dibujarAmd();
+    break;
+  case "SYSTEMMEDIUM - Carrito":
+    dibujarCart();
+    break;
+  case "SYSTEMMEDIUM - Contacto":
+    $("#sectionMainContact").on("submit", messageContactSucces);
+    break;
+}
 //----Pendiente
-//pasar el array de productos a un archivo JSON
+//que el counter del carrito cuente también el total de productos para sacar el valor real
 //animacion de los botones
-//quizas un switch case para saber en que hoja estoy en lugar de if sueltos
+//pensar: cómo optimizar el dibujo de las seccion? al menos de las cards (quizas pasar la palabra del tipo de producto?)
