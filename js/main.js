@@ -101,7 +101,6 @@ async function getDatos(){
         return respuesta;
       },
     });
-    localStorage.setItem("data", JSON.stringify(datos));
     return datos;
   }catch (error){
     console.log("Error al obtener los datos");
