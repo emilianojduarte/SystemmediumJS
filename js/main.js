@@ -1,105 +1,5 @@
 /*-------------------------VARIABLES--------------------*/
-const arrayData = [
-  {
-    id: 1,
-    type: "ram",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram1.jpg",
-    enviogratis: false,
-    recomendado: true,
-    price: 3500,
-    description: "1x4GB Kingston ValueRAM DDR3",
-  },
-  {
-    id: 2,
-    type: "ram",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram2.jpg",
-    enviogratis: true,
-    recomendado: false,
-    price: 5499,
-    description: "1x8GB Kingston Fury DDR4",
-  },
-  {
-    id: 3,
-    type: "ram",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/ram3.jpg",
-    enviogratis: true,
-    recomendado: true,
-    price: 16108,
-    description: "2x16GB Kingston Fury Beast DDR4",
-  },
-  {
-    id: 4,
-    type: "cpuintel",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i3.jpg",
-    enviogratis: true,
-    recomendado: true,
-    price: 26950,
-    description: "10ma Generación Intel i3",
-  },
-  {
-    id: 5,
-    type: "cpuintel",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i5.jpg",
-    enviogratis: true,
-    recomendado: true,
-    price: 24999,
-    description: "10ma Generación Intel i5",
-  },
-  {
-    id: 6,
-    type: "cpuintel",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i7.jpg",
-    enviogratis: false,
-    recomendado: true,
-    price: 43399,
-    description: "10ma Generación Intel i7",
-  },
-  {
-    id: 7,
-    type: "cpuintel",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/i9.jpg",
-    enviogratis: true,
-    recomendado: false,
-    price: 55900,
-    description: "10ma Generación Intel i9",
-  },
-  {
-    id: 8,
-    type: "cpuamd",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r3.jpg",
-    enviogratis: true,
-    recomendado: false,
-    price: 32662,
-    description: "3ra Generación Ryzen 3",
-  },
-  {
-    id: 9,
-    type: "cpuamd",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r5.jpg",
-    enviogratis: false,
-    recomendado: true,
-    price: 41999,
-    description: "3ra Generación Ryzen 5",
-  },
-  {
-    id: 10,
-    type: "cpuamd",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r7.jpg",
-    enviogratis: true,
-    recomendado: true,
-    price: 61722,
-    description: "3ra Generación Ryzen 7",
-  },
-  {
-    id: 11,
-    type: "cpuamd",
-    url: "https://emilianojduarte.github.io/SystemmediumJS/images/r9.jpg",
-    enviogratis: true,
-    recomendado: false,
-    price: 77400,
-    description: "3ra Generación Ryzen 9",
-  },
-];
+let arrayData = [];
 let stringRecomendado = "";
 let stringEnvio = "";
 let total = 0;
@@ -188,6 +88,14 @@ class Carrito {
 }
 
 /*---------------------------------- MAIN -------------------------------*/
+//Cargo los productos para tener que hacer una sola consulta
+$.ajax({
+  url: "https://emilianojduarte.github.io/SystemmediumJS/dat/listado.json",
+  dataType: "json",
+  success: (respuesta) => {
+    arrayData = respuesta;
+  },
+});
 //Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
 let carrito = new Carrito();
 carrito.initCart();
@@ -548,7 +456,6 @@ function messageContactSucces(){
 }
 
 //----Pendiente
-//carrousel de bootsrap a js
 //pasar el array de productos a un archivo JSON
 //animacion de los botones
 //quizas un switch case para saber en que hoja estoy en lugar de if sueltos
