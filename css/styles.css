@@ -179,6 +179,9 @@ footer {
     justify-content: space-evenly;
     align-content: center; }
 
+#sectionMainContact p {
+  text-align: center; }
+
 /* Estilos redes sociales */
 /* Paleta de Colores */
 /* Mixing */

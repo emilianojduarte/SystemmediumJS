@@ -409,7 +409,7 @@ function dibujarCart() {
         </div>
       `);
     });
-    //Dibujo la sección final con el total a pagar
+    //Dibujo la sección final con el total y envio
     $("#sectionMainCart").append(`<div class="cartCheckout">
       <p>Total = $${total}</p> 
       <button class="cartCheckout--btnPay" onclick="deliver()">Enviar</button>
@@ -533,8 +533,22 @@ function messageDeliverySucces() {
   carrito.initCart();
 }
 
+if (page === "SYSTEMMEDIUM - Contacto") {
+  $("#sectionMainContact").on("submit", messageContactSucces);
+}
+function messageContactSucces(){
+  $("#titleContact").html("");
+  $("#titleContact").text("Gracias por su contacto");
+  const nombreCliente = document.getElementById("inputNombre").value;
+  $("#sectionMainContact").html("");
+  $("#sectionMainContact").append(`
+  <p>Le agradecemos que se tome el tiempo para contactarnos ${nombreCliente}</p>
+  <p>En las próximas 24 hs háblies un representante lo estará contactando</p>
+  `);
+}
+
+
 //----Pendiente
 //pasar el array de productos a un archivo JSON
-//formulario de contacto -> correciones en el html, JS y envio del formulario
 //animacion de los botones
-
+//quizas un switch case para saber en que hoja estoy en lugar de if sueltos
