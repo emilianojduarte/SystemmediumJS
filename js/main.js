@@ -93,7 +93,7 @@ $.ajax({
   url: "https://emilianojduarte.github.io/SystemmediumJS/data/listado.json",
   dataType: "json",
   success: (respuesta) => {
-    arrayData = respuesta;
+    arrayData = JSON.parse(respuesta);
   },
 });
 //Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
