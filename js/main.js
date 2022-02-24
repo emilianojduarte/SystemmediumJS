@@ -84,7 +84,9 @@ class Carrito {
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
 /*-------------------------------- FUNCIONES ------------------------------*/
+/////////////////////////////////////////////////////////////////////////////////
 async function getDatos(){
   let datos= [];
   try{
@@ -252,7 +254,7 @@ function dibujarCart() {
     `);
   }
 }
-function deliver() {
+function deliver() { //formulario de envio
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
   $("#sectionMainCart").html("");
@@ -346,7 +348,7 @@ function deliver() {
   .fadeIn("slow")
   .on("submit", messageDeliverySucces);
 }
-function messageDeliverySucces() {
+function messageDeliverySucces() {//mensaje que se activa luego de enviar el formulario de envio
   $("#titleCart").html("");
   $("#titleCart").text("Muchas Gracias");
   const nombreCliente = document.getElementById("inputNombre").value;
@@ -370,8 +372,9 @@ function messageContactSucces(){
   <p>En las próximas 24 hs háblies un representante lo estará contactando</p>
   `);
 }
-
-/*---------------------------------- MAIN -------------------------------*/
+////////////////////////////////////////////////////////////////////////////////
+/*------------------------------------ MAIN ---------------------------------*/
+////////////////////////////////////////////////////////////////////////////////
 //Lo primero que hace le programa es crear el único carrito que se utiliza y lo inicializa
 let carrito = new Carrito();
 carrito.initCart();
