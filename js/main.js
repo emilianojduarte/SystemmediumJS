@@ -123,7 +123,7 @@ async function dibujarRam(){
                       ${stringRecomendado}
                       ${stringEnvio}
                     </p>
-                    <p class="card__txt--p2">$${producto.price}</p>
+                    <p class="card__txt--p2">$${producto.price.toLocaleString()}</p>
                     <p class="card__txt--p3">${producto.description}</p>
                     <button class="card__txt--p5" onclick="carrito.addToCart(${producto.id})">
                       Agregar al carrito
@@ -154,7 +154,7 @@ async function dibujarIntel(){
                       ${stringRecomendado}
                       ${stringEnvio}
                     </p>
-                    <p class="card__txt--p2">$${producto.price}</p>
+                    <p class="card__txt--p2">$${producto.price.toLocaleString()}</p>
                     <p class="card__txt--p3">${producto.description}</p>
                     <button class="card__txt--p5" onclick="carrito.addToCart(${producto.id})">
                       Agregar al carrito
@@ -185,7 +185,7 @@ async function dibujarAmd(){
             ${stringRecomendado}
             ${stringEnvio}
           </p>
-          <p class="card__txt--p2">$${producto.price}</p>
+          <p class="card__txt--p2">$${producto.price.toLocaleString()}</p>
           <p class="card__txt--p3">${producto.description}</p>
           <button class="card__txt--p5" onclick="carrito.addToCart(${producto.id})">
             Agregar al carrito
@@ -229,7 +229,7 @@ function dibujarCart() {
             </div>
             <div class="cartStyle__data__price">
               <div class="cartStyle__data__price--amount">$${
-                producto.price * producto.cantidad
+                (producto.price* producto.cantidad).toLocaleString()
               }</div>
               <button class="cartStyle__data__price--btn removeProduct" onclick="carrito.removeItem(${
                 producto.id
@@ -243,7 +243,7 @@ function dibujarCart() {
     });
     //Dibujo la sección final con el total y envio
     $("#sectionMainCart").append(`<div class="cartCheckout">
-      <p>Total = $${total}</p> 
+      <p>Total = $${total.toLocaleString()}</p> 
       <button class="cartCheckout--btnPay" onclick="deliver()">Enviar</button>
       </div>
     `);
