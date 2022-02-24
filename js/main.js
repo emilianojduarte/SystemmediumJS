@@ -474,5 +474,3 @@ switch (page){
     $("#sectionMainContact").on("submit", messageContactSucces);
     break;
 }
-//----Pendiente
-//pensar: cómo optimizar el dibujo de las seccion? al menos de las cards (quizas pasar la palabra del tipo de producto?)
