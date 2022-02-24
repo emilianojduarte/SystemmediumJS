@@ -22,8 +22,6 @@ class Carrito {
     });
     if (indiceEncontrado === -1) {
       let arrayData = await getDatos();
-      //let arrayData = JSON.parse(localStorage.getItem("data"));//tuve que hacerlo así porque no me funcionaba de otra manera.
-      //como no le puedo poner el async arrayData me queda en 0
       const productoAgregar = arrayData.find((producto) => producto.id === id);
       productoAgregar.cantidad = 1;
       this.productos.push(productoAgregar);
@@ -78,7 +76,10 @@ class Carrito {
     localStorage.removeItem("cart");
   }
   counterCart(){
-    let l = this.productos.length;
+    let l = 0;
+    for (const producto of this.productos){
+      l = l + producto.cantidad;
+    }
     $("#counter").text(`${l}`);
   }
 }
@@ -452,7 +453,7 @@ const enviarDatos = async (url = "", data = {}) => {
 /*---------Sección de generación de pagina----------*/
 //Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
 const page = document.title;
-//Acá lo que hago depende en qué página estoy, capturo la sección principal correspondiente.
+//Acá lo que hago depende en qué página estoy ejecuto lo que necesito.
 switch (page){
   case "SYSTEMMEDIUM - Memorias RAM":
     dibujarRam();
