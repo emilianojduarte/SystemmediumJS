@@ -475,5 +475,4 @@ switch (page){
     break;
 }
 //----Pendiente
-//animacion de los botones
 //pensar: cómo optimizar el dibujo de las seccion? al menos de las cards (quizas pasar la palabra del tipo de producto?)
