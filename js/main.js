@@ -1,8 +1,4 @@
 /*-------------------------VARIABLES--------------------*/
-let stringRecomendado = "";
-let stringEnvio = "";
-let total = 0;
-let l = 0;
 let formEnvio;
 /*--------------------------CLASES------------------------ */
 //Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
@@ -84,7 +80,7 @@ class Carrito {
     localStorage.removeItem("cart");
   }
   counterCart(){
-    l = this.productos.length;
+    let l = this.productos.length;
     $("#counter").text(`${l}`);
   }
 }
@@ -109,6 +105,8 @@ async function getDatos(){
 
 async function dibujarRam(){
   let arrayData = await getDatos();
+  let stringEnvio = "";
+  let stringRecomendado = "";
   arrayData.forEach((producto) => {
     if (producto.type === "ram") {
       if (producto.recomendado == true) {
@@ -139,6 +137,8 @@ async function dibujarRam(){
 
 async function dibujarIntel(){
   let arrayData = await getDatos();
+  let stringEnvio = "";
+  let stringRecomendado = "";
   arrayData.forEach((producto) => {
     if (producto.type === "cpuintel") {
       if (producto.recomendado == true) {
@@ -169,6 +169,8 @@ async function dibujarIntel(){
 
 async function dibujarAmd(){
   let arrayData = await getDatos();
+  let stringEnvio = "";
+  let stringRecomendado = "";
   arrayData.forEach((producto) => {
     if (producto.type === "cpuamd") {
       if (producto.recomendado == true) {
@@ -200,6 +202,7 @@ async function dibujarAmd(){
 function dibujarCart() {
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
+    let total = 0;
     carrito.getCarrito().forEach((producto) => {
       total = total + producto.price * producto.cantidad;
       $("#sectionMainCart").append(`
