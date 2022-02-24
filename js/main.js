@@ -472,7 +472,5 @@ switch (page){
     break;
 }
 //----Pendiente
-//que el counter del carrito cuente también el total de productos para sacar el valor real
 //animacion de los botones
 //pensar: cómo optimizar el dibujo de las seccion? al menos de las cards (quizas pasar la palabra del tipo de producto?)
-//revisar variable que no se utilizan o que son globales pero realmente no es necesario que lo sean
