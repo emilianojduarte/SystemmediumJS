@@ -1,5 +1,3 @@
-/*-------------------------VARIABLES--------------------*/
-let formEnvio;
 /*--------------------------CLASES------------------------ */
 //Clase Carrito, sirve para crear el array carrito, que si bien es el único que se utilizará,
 //tiene los métodos para todas las acciones relacionadas a este
@@ -102,7 +100,6 @@ async function getDatos(){
     console.log("Error al obtener los datos");
   }
 }
-
 async function dibujarRam(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -134,7 +131,6 @@ async function dibujarRam(){
     }
   });
 }
-
 async function dibujarIntel(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -166,7 +162,6 @@ async function dibujarIntel(){
     }
   });
 }
-
 async function dibujarAmd(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -198,7 +193,6 @@ async function dibujarAmd(){
     }
   });
 }
-
 function dibujarCart() {
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
@@ -256,7 +250,6 @@ function dibujarCart() {
     `);
   }
 }
-
 function deliver() {
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
@@ -351,7 +344,6 @@ function deliver() {
   .fadeIn("slow")
   .on("submit", messageDeliverySucces);
 }
-
 function messageDeliverySucces() {
   $("#titleCart").html("");
   $("#titleCart").text("Muchas Gracias");
@@ -366,7 +358,6 @@ function messageDeliverySucces() {
   carrito.emptyCart();
   carrito.initCart();
 }
-
 function messageContactSucces(){
   $("#titleContact").html("");
   $("#titleContact").text("Gracias por su contacto");
@@ -383,8 +374,6 @@ function messageContactSucces(){
 let carrito = new Carrito();
 carrito.initCart();
 carrito.counterCart();
-//Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
-const page = document.title;
 /*------------------Log in---------------*/
 //Reviso si ya está logueado
 $("document").ready(() => {
@@ -460,6 +449,8 @@ const enviarDatos = async (url = "", data = {}) => {
 };
 
 /*---------Sección de generación de pagina----------*/
+//Acá lo que se me ocurrió es usar el "document.title" para saber en qué página estoy
+const page = document.title;
 //Acá lo que hago depende en qué página estoy, capturo la sección principal correspondiente.
 switch (page){
   case "SYSTEMMEDIUM - Memorias RAM":
