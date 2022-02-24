@@ -87,6 +87,8 @@ class Carrito {
 ////////////////////////////////////////////////////////////////////////////////
 /*-------------------------------- FUNCIONES ------------------------------*/
 /////////////////////////////////////////////////////////////////////////////////
+//Obtiene el listado de productos del archivo listado.json y los pasa a un array
+//para poder trabajarlo desde allí
 async function getDatos(){
   let datos= [];
   try{
@@ -103,6 +105,7 @@ async function getDatos(){
     console.log("Error al obtener los datos");
   }
 }
+//Dibuja la sección de las ram
 async function dibujarRam(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -134,6 +137,7 @@ async function dibujarRam(){
     }
   });
 }
+//Dibuja la sección de los procesadores Intel
 async function dibujarIntel(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -165,6 +169,7 @@ async function dibujarIntel(){
     }
   });
 }
+//Dibuja la sección de los procesadores AMD
 async function dibujarAmd(){
   let arrayData = await getDatos();
   let stringEnvio = "";
@@ -196,7 +201,8 @@ async function dibujarAmd(){
     }
   });
 }
-function dibujarCart() {//Dibuja la seccion del carrito de compras
+//Dibuja la seccion del carrito de compras
+function dibujarCart() {
   const l = carrito.getCarrito().length;
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
@@ -254,7 +260,8 @@ function dibujarCart() {//Dibuja la seccion del carrito de compras
     `);
   }
 }
-function deliver() { //formulario de envio
+//Formulario de envio
+function deliver() { 
   $("#titleCart").html("");
   $("#titleCart").text("Formulario de envio");
   $("#sectionMainCart").html("");
@@ -348,7 +355,8 @@ function deliver() { //formulario de envio
   .fadeIn("slow")
   .on("submit", messageDeliverySucces);
 }
-function messageDeliverySucces() {//mensaje que se activa luego de enviar el formulario de envio
+//Mensaje que se activa luego de enviar el formulario de envio
+function messageDeliverySucces() {
   $("#titleCart").html("");
   $("#titleCart").text("Muchas Gracias");
   const nombreCliente = document.getElementById("inputNombre").value;
