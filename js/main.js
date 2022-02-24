@@ -194,6 +194,7 @@ async function dibujarAmd(){
   });
 }
 function dibujarCart() {
+  const l = carrito.getCarrito().length;
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
     let total = 0;
