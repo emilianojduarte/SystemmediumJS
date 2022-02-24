@@ -145,7 +145,7 @@ async function dibujarIntel(){
       }
       if (producto.enviogratis == true) {
         stringEnvio = '<span class="card__txt--p4">Envio Gratis</span>';
-      } //Se reemplaza el getElementById por los selectores de jquery
+      }
       $("#sectionMainIntel")
         .append(`<div class="card"><div><img src="${producto.url}" class="card__img"
                 alt="foto de producto - procesador intel"></div>
@@ -160,7 +160,7 @@ async function dibujarIntel(){
                       Agregar al carrito
                     </button>
                 </div></div>`);
-      a = ""; // vuelvo a vaciar las variables si no me queda con el valor cacheado
+      a = "";
       b = "";
     }
   });
@@ -191,12 +191,12 @@ async function dibujarAmd(){
             Agregar al carrito
           </button>
       </div></div>`);
-      a = ""; // vuelvo a vaciars la variables si no me queda con el valor cacheado
+      a = "";
       b = "";
     }
   });
 }
-function dibujarCart() {
+function dibujarCart() {//Dibuja la seccion del carrito de compras
   const l = carrito.getCarrito().length;
   if (localStorage.getItem("cart") && l > 0){
     $("#sectionMainCart").html("");
